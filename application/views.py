@@ -11,7 +11,19 @@ def upload(request):
 		form = BookForm(request.POST, request.FILES)
 		if form.is_valid():
 			form.save()
-		return redirect("application:upload")
+		return redirect("/")
 	form = BookForm()
 	books = Books.objects.all()
-	return render(request=request, template_name="main/upload.html", context={'form':form, 'books':books})
+	return render(request=request, template_name="upload.html", context={'form':form, 'books':books})
+
+def books(request):
+    if request.method == "POST":
+        form = BookForm(request.POST, request.FILES)
+        if form.is_valid():
+            project = form.save(commit=False)
+            project.save()
+        return redirect('/')
+    else:
+        form = BookForm()
+        
+    return render(request, 'books.html', {"form": form})

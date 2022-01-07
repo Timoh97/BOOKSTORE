@@ -7,3 +7,4 @@ class Books(models.Model):
    author = models.TextField(default='Author name..')
    year_published = models.IntegerField(blank=True, null=True)
    title = models.TextField(default='Title of the book')
+   price = models.IntegerField(blank=True, null=True,default='Price in dollars..')
