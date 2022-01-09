@@ -4,7 +4,7 @@ from django.db import models
 class Books(models.Model):
    file = models.FileField(upload_to='documents/')
    image = models.ImageField(upload_to='images/')
-   author = models.TextField(default='Author name..')
+   author = models.CharField(default='Author name..',max_length=100)
    year_published = models.IntegerField(blank=True, null=True)
-   title = models.TextField(default='Title of the book')
+   title = models.CharField(default='Title of the book',max_length=100)
    price = models.IntegerField(blank=True, null=True,default='Price in dollars..')
