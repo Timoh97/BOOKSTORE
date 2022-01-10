@@ -51,3 +51,30 @@ def register(request):
         form = UserRegisterForm()
     return render(request, 'registration/register.html', {'form': form}) 
 
+def cart(request):
+	data = cartData(request)
+
+	cartItems = data['cartItems']
+	order = data['order']
+	items = data['items']
+
+	params = {
+        'items':items, 
+        'order':order, 
+        'cartItems':cartItems
+        }
+	return render(request, 'order/cart.html', params)
+
+def checkout(request):
+	data = cartData(request)
+	
+	cartItems = data['cartItems']
+	order = data['order']
+	items = data['items']
+
+	params = {
+        'items':items, 
+        'order':order, 
+        'cartItems':cartItems
+        }
+	return render(request, 'order/checkout.html', params)
