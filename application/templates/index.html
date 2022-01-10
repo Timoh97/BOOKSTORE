@@ -21,6 +21,7 @@
 			{% endfor %}
 		</div>
 
+		{#{% if user.is_authenticated %}#}
         <div class="modal fade bd-example-modal-xl" id="ModalCenter" tabindex="-1" role="dialog"
              aria-labelledby="exampleModalCenterTitle"
              aria-hidden="true">
@@ -44,6 +45,7 @@
                 </div>
             </div>
         </div>
+        {#{% endif %}#}
 	</div>
 	
 {% endblock content %}
