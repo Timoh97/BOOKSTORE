@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, Http404,HttpResponseRedirect, JsonResponse
 from django.http import JsonResponse
-from .forms import BookForm, UserRegisterForm
+from .forms import UserRegisterForm
 from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
