@@ -11,7 +11,8 @@ def cookieCart(request):
 	items = []
 	order = {'get_cart_total':0, 'get_cart_items':0, 'shipping':False}
 	cartItems = order['get_cart_items']
-
+  
+	
 	for i in cart:
 		try:	
 			if(cart[i]['quantity']>0):   
