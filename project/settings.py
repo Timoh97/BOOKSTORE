@@ -76,7 +76,6 @@ INSTALLED_APPS = [
     'application',
     'bootstrap4',
     'crispy_forms',
-    'bootstrap_modal_forms',
     'cloudinary',
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
