@@ -22,7 +22,6 @@ def index(request):
 	products = Product.objects.all()
 	if request.method == 'POST':
 			form = ProductForm(request.POST, request.FILES)
-			# import pdb; pdb.set_trace()
 			if form.is_valid():
 					post = form.save(commit=False)
 					post.user = request.user
@@ -35,7 +34,7 @@ def index(request):
 				'form': form, 
         'cartItems':cartItems
         }
-	return render(request, 'order/index.html', params)
+	return render(request, 'index.html', params)
 
 def register(request):
     if request.method == 'POST':
@@ -63,7 +62,7 @@ def cart(request):
         'order':order, 
         'cartItems':cartItems
         }
-	return render(request, 'order/cart.html', params)
+	return render(request, 'cart.html', params)
 
 def checkout(request):
 	data = cartData(request)
@@ -77,7 +76,7 @@ def checkout(request):
         'order':order, 
         'cartItems':cartItems
         }
-	return render(request, 'order/checkout.html', params)
+	return render(request, 'checkout.html', params)
 
 def updateItem(request):
 	data = json.loads(request.body)
