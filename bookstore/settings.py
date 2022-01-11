@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'bookstoreapp.apps.BookstoreappConfig',
     'bootstrap3',
     'cloudinary',
+    'bookstoreapp',
 ]
 
 MIDDLEWARE = [
