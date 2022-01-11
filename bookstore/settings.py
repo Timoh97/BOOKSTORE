@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bookstoreapp.apps.BookstoreappConfig',
-    'bootstrap3',
+    'bootstrap4',
     'cloudinary',
     'bookstoreapp',
 ]
