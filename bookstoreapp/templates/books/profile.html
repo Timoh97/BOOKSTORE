@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %} 
+{{ block.super}}
+
+<div class="container mt-3">
+    <div class="content-section">
+        <div class="media">
+            <div class="container card">
+                <div class = "row">
+                    <div class="col-md-12">
+                        <h1 class="font-weight-bold text-center intro">Books</h1>
+                        <h3 class="text-center intro">Your Profile</h3>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3 mt-3 mb-2">
+                        <img class="rounded-circle" src="{{ user.profile.profile_pic.url }}" height="150" width="150">
+                    </div>
+                    <div class="col-md-6 mt-3">
+                        <div class="contact-info">
+                            <div class=""><span class="font-weight-bold name">{{ user.username|title }}</span></div>
+
+           
+                            <p><span class="font-weight-bold">Name: </span>  {{user.profile.name}}</p>
+                            <p><span class="font-weight-bold">Email: </span>   {{user.email}}</p>
+                            {% if user.profile.phone_number%}
+                                <p><span class="font-weight-bold">Tel: </span>  {{user.profile.phone_number}}</p>
+                                
+                            {%endif%}
+                            <p><span class="font-weight-bold">Bio: </span>{{ user.profile.bio }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class = "row">
+                    <div class = "col-md-4"></div>
+                    <div class = "col-md-6">
+                        <a class="btn mt-4 btn-secondary pl-4 pr-4 font-weight-bold black" data-toggle="modal" data-target=".bd-example-modal-md"><strong>Edit your user profile</strong></a><br><br>
+                    </div>
+                    <div class = "col-md-2"></div>
+                    
+                </div>
+            </div>
+            
+        </div>
+        <div class="modal fade bd-example-modal-md" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-md ">
+                <div class="modal-content">
+                    <form action="" method="post" enctype="multipart/form-data" class="mr-4 mt-4 ml-4 mb-4">
+                        <h1 class="font-weight-bold text-center intro">Books</h1>
+                        <h3 class="text-center intro">Update profile</h3>
+                        <hr>
+                        {% csrf_token%}
+                        {{ user_form|crispy}}
+                        {{ profile_form|crispy}}
+                        <button type="submit" class="btn mt-4 btn-secondary pl-4 pr-4 font-weight-bold black"> Update your user profile</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{%endblock%}
