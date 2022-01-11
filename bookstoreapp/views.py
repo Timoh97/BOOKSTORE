@@ -20,3 +20,5 @@ def profile(request):
         profile_form = UpdateUserProfileForm(instance=request.user.profile)
 
     return render(request, 'books/profile.html')
+def reviews(request):
+    return render(request, 'index.html')
