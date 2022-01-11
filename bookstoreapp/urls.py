@@ -6,4 +6,5 @@ urlpatterns =[
     path("", views.upload, name="upload"),
     path("books/", views.books, name="books"),
     path("upload/", views.upload, name="upload"),
+    
 ]
