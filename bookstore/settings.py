@@ -39,8 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bookstoreapp.apps.BookstoreappConfig',
+    'bookstoreapp',
     'bootstrap4',
+    'crispy_forms',
+    'bookstoreapp.apps.BookstoreappConfig',
     'cloudinary',
     'bookstoreapp',
 ]
@@ -81,8 +83,10 @@ WSGI_APPLICATION = 'bookstore.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'bookstore',
+        'USER': 'annalis',
+    'PASSWORD':'Ann123',
     }
 }
 

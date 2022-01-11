@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 from django.db import models
@@ -11,3 +12,9 @@ class Books(models.Model):
    year_published = models.IntegerField(blank=True, null=True)
    title = models.CharField(default='Title of the book',max_length=100)
    price = models.IntegerField(blank=True, null=True,default='Price in dollars..')
+# The profile model
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE,related_name='profile')
+    bio = models.TextField(max_length=400, blank=True)
+    name = models.CharField(blank=True, max_length=120)
+    profile_pic = models.ImageField(upload_to='images/')
