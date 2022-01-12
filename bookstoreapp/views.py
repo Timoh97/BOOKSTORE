@@ -12,7 +12,7 @@ from .utils import cookieCart, cartData, guestOrder
 from .forms import UserRegisterForm,ProductForm
 
 # Create your views here.
-def index(request):
+def indexx(request):
 	data = cartData(request)
 
 	cartItems = data['cartItems']
@@ -34,7 +34,7 @@ def index(request):
 				'form': form, 
         'cartItems':cartItems
         }
-	return render(request, 'index.html', params)
+	return render(request, 'indexx.html', params)
 
 def register(request):
     if request.method == 'POST':
