@@ -18,3 +18,16 @@ class Profile(models.Model):
     bio = models.TextField(max_length=400, blank=True)
     name = models.CharField(blank=True, max_length=120)
     profile_pic = models.ImageField(upload_to='images/')
+from django.contrib.auth.models import AbstractUser
+
+#create custoclass User(AbstractUser):
+class User(AbstractUser):
+    is_customer = models.BooleanField(default=False)
+    is_author = models.BooleanField(default=False)
+
+class Customer(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+
+
+class Author(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
