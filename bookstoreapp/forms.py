@@ -1,12 +1,11 @@
 from django import forms
-from .models import Books
 from django.forms import fields
 from django.forms.widgets import Textarea
-from . models import Profile
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
-
-from bookstoreapp.models import Customer, User, Author
+from bookstoreapp.models import *
+from django.contrib.auth.models import User
+from .models import *
 
 
 # Create your forms here.
@@ -69,3 +68,17 @@ class AuthorSignUp(UserCreationForm):
         author.last_name = self.cleaned_data.get('last_name')
         author.email = self.cleaned_data.get('email')
         return user
+
+
+# Create your forms here.
+class UserRegisterForm(UserCreationForm):
+    email = forms.EmailField(max_length=254, help_text='Required. Enter a valid email address.')
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password1', 'password2']
+
+class ProductForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = ('image','name', 'price', 'digital',)
