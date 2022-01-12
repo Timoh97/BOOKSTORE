@@ -12,7 +12,7 @@ from .utils import cookieCart, cartData, guestOrder
 from .forms import UserRegisterForm,ProductForm
 
 # Create your views here.
-def indexx(request):
+def index(request):
 	data = cartData(request)
 
 	cartItems = data['cartItems']
