@@ -14,9 +14,9 @@
   <div class="row">
 
   {% if Books %}
-    {% for m in books %}
+    {% for book in books %}
       <div class="col-sm-6 col-md-3">
-          <h1>{{m.title}}</h1>
+          <h1>{{book.title}}</h1>
       </div>
     {% endfor %}
   {% endif %}
