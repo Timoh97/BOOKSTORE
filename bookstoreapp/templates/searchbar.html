@@ -4,9 +4,9 @@
 
   <div class="row">
     {% if book%}
-      <h2>Found {{ Books|length }} of searched term {{message}}</h2>
+      <h2>Found {{ Books|length }} books {{message}}</h2>
     {% else %}
-      <h2> Found 0 articles for the search term {{message}}</h2>
+      <h2> Found no books available {{message}}</h2>
     {% endif %}
 
   </div>
